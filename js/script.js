@@ -48,13 +48,13 @@ function game() {
    let computerSelection = computerPlay().toLowerCase();
    let playerSelection = choice.children[0].src
     .replace(
-     "http://127.0.0.1:5500/images/" ||
-      "https://razarifa.github.io/rock-paper-scissors.github.io/images/",
+     "https://razarifa.github.io/rock-paper-scissors.github.io/images/",
      ""
     )
     .replace(".png", "")
     .trim()
     .toLowerCase();
+
    let im1 = document.querySelector(".im1");
    let im2 = document.querySelector(".im2");
    im1.setAttribute("src", `images/${playerSelection}.png`);
