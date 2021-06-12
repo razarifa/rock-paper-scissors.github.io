@@ -1,79 +1,81 @@
-// function randomNum() {
-//     let num = Math.floor(Math.random() * (3 - 1 + 1) + 1);
-//     return num;
-// }
+function randomNum() {
+ let num = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+ return num;
+}
 
-// function computerPlay() {
-//     let choice = randomNum();
-//     switch (choice) {
-//         case 1:
-//             return "Rock"
-//             break;
-//         case 2:
-//             return "Paper"
-//             break;
-//         case 3:
-//             return "Scissors"
-//             break;
-//         default:
-//             return 'Not choosen'
-//             break;
-//     }
-// }
+function computerPlay() {
+ let choice = randomNum();
+ switch (choice) {
+  case 1:
+   return "Rock";
+   break;
+  case 2:
+   return "Paper";
+   break;
+  case 3:
+   return "Scissors";
+   break;
+ }
+}
 
-// let userScore = 0;
-// let computerScore = 0;
+let userScore = 0;
+let computerScore = 0;
+function reset() {
+ computerScore = 0;
+ userScore = 0;
+}
+function playRound(playerSelection, computerSelection) {
+ if (playerSelection === computerSelection) {
+  return `Tie game! ${playerSelection} : ${computerSelection}.`;
+ } else if (
+  (playerSelection === "rock" && computerSelection === "scissors") ||
+  (playerSelection === "paper" && computerSelection === "rock") ||
+  (playerSelection === "scissors" && computerSelection === "paper")
+ ) {
+  userScore++;
+  return `Lets go!!! You won. ${playerSelection} beats ${computerSelection}.`;
+ } else {
+  computerScore++;
+  return `Oh no! You lost. ${computerSelection} beats ${playerSelection}.`;
+ }
+}
+function game() {
+ const choicesArray = [...document.querySelectorAll(".user-choice")];
+ let round = 1;
 
-// function playRound(playerSelection, computerSelection) {
-//     let playerSelect = playerSelection.toLowerCase();
-//     let computerSelect = computerSelection.toLowerCase();
-//     switch (playerSelect, computerSelect) {
-//         case ("rock", "paper"):
-//             computerScore++;
-//             return "Oh no! You lost. Paper beats rock."
-//             break;
-//         case ("rock", "scissors"):
-//             userScore++;
-//             return "Lets go!!! You won. Rock beats scissors."
-//             break;
-//         case ("paper", "rock"):
-//             userScore++;
-//             return "Lets go!!! You won. Paper beats rock."
-//             break;
-//         case ("paper", "scissors"):
-//             computerScore++;
-//             return "Oh no! You lost. Scissors beats paper."
-//             break;
-//         case ("scissors", "rock"):
-//             computerScore++;
-//             return "Oh no! You lost. Rock beats scissors.";
-//             break;
-//         case ("scissors", "paper"):
-//             userScore++;
-//             return "Lets go!!! You won. Scissors beats paper."
-//             break;
-//         default:
-//             return "Tie game";
-//             break;
-//     }
+ choicesArray.forEach((choice) => {
+  choice.addEventListener("click", () => {
+   let computerSelection = computerPlay().toLowerCase();
+   let playerSelection = choice.children[0].src
+    .replace("http://127.0.0.1:5500/images/", "")
+    .replace(".png", "")
+    .trim()
+    .toLowerCase();
+   let im1 = document.querySelector(".im1");
+   let im2 = document.querySelector(".im2");
+   im1.setAttribute("src", `images/${playerSelection}.png`);
+   im1.style.width = "100px";
+   im2.setAttribute("src", `images/${computerSelection}.png`);
+   im2.style.width = "100px";
 
-// }
-
-// function game() {
-//     let round = 1;
-//     do {
-//         const playerSelection = prompt("Rock, Paper, Scissors");
-//         const computerSelection = computerPlay();
-//         console.group(`Round: ${round}`);
-//         console.log(`Computer choice: ${computerSelection}`);
-//         console.log(`Yout choice: ${playerSelection}`);
-//         console.log(playRound(playerSelection, computerSelection));
-//         ++round;
-//         if (round == 6) {
-//             console.log(userScore > computerScore ? `You won against the comp ${userScore}:${computerScore}` : `Computer won! ${computerScore}:${userScore}`);
-//         }
-//     }
-//     while (round <= 5)
-// }
-// game();
-let userChoice = document.querySelector('.user-choice');
+   console.group(`Round: ${round}`);
+   console.log(`Your choice: ${playerSelection}`);
+   console.log(`Computer choice: ${computerSelection}`);
+   document.querySelector(".netice").innerText = playRound(
+    playerSelection,
+    computerSelection
+   );
+   round++;
+   if (round == 6) {
+    document.querySelector(".neticeler").style.display = "none";
+    document.querySelector(".choice-container").style.display = "none";
+    let res =
+     userScore > computerScore
+      ? `You won against the comp ${userScore}:${computerScore}`
+      : `Computer won! ${computerScore}:${userScore}`;
+    document.querySelector(".netice").innerText = res;
+   }
+  });
+ });
+}
+game();
