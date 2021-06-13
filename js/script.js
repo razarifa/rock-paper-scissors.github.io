@@ -48,14 +48,17 @@ function game() {
   choice.addEventListener("click", () => {
    let computerSelection = computerPlay().toLowerCase();
    let playerSelection = choice.children[0].src
-    .replace("https://razarifa.github.io/rock-paper-scissors.github.io/", "")
+    .replace(
+     "https://razarifa.github.io/rock-paper-scissors.github.io/images",
+     ""
+    )
     .replace(".png", "")
     .trim()
     .toLowerCase();
 
    let im1 = document.querySelector(".im1");
    let im2 = document.querySelector(".im2");
-   im1.setAttribute("src", `${playerSelection}.png`);
+   im1.setAttribute("src", `images/${playerSelection}.png`);
    im1.style.width = "100px";
    im2.setAttribute("src", `images/${computerSelection}.png`);
    im2.style.width = "100px";
