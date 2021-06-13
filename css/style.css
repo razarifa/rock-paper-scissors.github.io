@@ -76,3 +76,6 @@ body {
  box-shadow: 1px 1px 1px rgb(17, 17, 17);
  transform: scale(1.05);
 }
+.instant-result {
+ text-align: center;
+}
