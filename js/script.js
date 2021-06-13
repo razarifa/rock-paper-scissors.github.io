@@ -41,6 +41,7 @@ function playRound(playerSelection, computerSelection) {
 }
 function game() {
  const choicesArray = [...document.querySelectorAll(".user-choice")];
+ document.querySelector(".netice-p").style.display = "none";
  let round = 1;
 
  choicesArray.forEach((choice) => {
@@ -48,13 +49,14 @@ function game() {
    let computerSelection = computerPlay().toLowerCase();
    let playerSelection = choice.children[0].src
     .replace(
-     "https://razarifa.github.io/rock-paper-scissors.github.io/images/",
+     " https://razarifa.github.io/rock-paper-scissors.github.io/images/",
      ""
     )
     .replace(".png", "")
     .trim()
     .toLowerCase();
-
+   // https://razarifa.github.io/rock-paper-scissors.github.io/images/
+   //  http://127.0.0.1:5500/images/
    let im1 = document.querySelector(".im1");
    let im2 = document.querySelector(".im2");
    im1.setAttribute("src", `images/${playerSelection}.png`);
@@ -73,6 +75,10 @@ function game() {
    if (round == 6) {
     document.querySelector(".neticeler").style.display = "none";
     document.querySelector(".choice-container").style.display = "none";
+    document.querySelector(".netice-p").style.display = "block";
+    document.querySelector(".netice-p").addEventListener("click", () => {
+     location.reload();
+    });
     let res =
      userScore > computerScore
       ? `You won against the comp ${userScore}:${computerScore}`
