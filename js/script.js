@@ -1,6 +1,3 @@
-let userScore = 0;
-let computerScore = 0;
-
 function randomNum() {
  let num = Math.floor(Math.random() * (3 - 1 + 1) + 1);
  return num;
@@ -21,6 +18,12 @@ function computerPlay() {
  }
 }
 
+let userScore = 0;
+let computerScore = 0;
+function reset() {
+ computerScore = 0;
+ userScore = 0;
+}
 function playRound(playerSelection, computerSelection) {
  if (playerSelection === computerSelection) {
   return `Tie game! ${
@@ -48,6 +51,7 @@ function game() {
  const choicesArray = [...document.querySelectorAll(".user-choice")];
  document.querySelector(".result-container").style.display = "none";
  let round = 1;
+
  choicesArray.forEach((choice) => {
   choice.addEventListener("click", () => {
    let computerSelection = computerPlay().toLowerCase();
@@ -68,10 +72,7 @@ function game() {
    im2.setAttribute("src", `images/${computerSelection}.png`);
    im1.setAttribute("alt", `${computerSelection}`);
    im2.style.width = "100px";
-   document.querySelector(".instant-result").innerText = playRound(
-    playerSelection,
-    computerSelection
-   );
+
    document.querySelector(".result").innerText = playRound(
     playerSelection,
     computerSelection
