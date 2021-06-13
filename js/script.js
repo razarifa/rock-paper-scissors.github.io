@@ -41,6 +41,7 @@ function playRound(playerSelection, computerSelection) {
 }
 function game() {
  const choicesArray = [...document.querySelectorAll(".user-choice")];
+ document.querySelector(".netice-p").style.display = "none";
  let round = 1;
 
  choicesArray.forEach((choice) => {
