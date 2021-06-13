@@ -33,10 +33,14 @@ function playRound(playerSelection, computerSelection) {
   (playerSelection === "scissors" && computerSelection === "paper")
  ) {
   userScore++;
-  return `Lets go!!! You won. ${playerSelection} beats ${computerSelection}.`;
+  return `Lets go!!! You won. ${
+   playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+  } beats ${computerSelection}.`;
  } else {
   computerScore++;
-  return `Oh no! You lost. ${computerSelection} beats ${playerSelection}.`;
+  return `Oh no! You lost. ${
+   computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
+  } beats ${playerSelection}.`;
  }
 }
 function game() {
