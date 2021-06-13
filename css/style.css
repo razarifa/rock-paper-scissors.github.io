@@ -2,7 +2,7 @@
  box-sizing: border-box;
 }
 body {
- background-color: rgb(102, 47, 230);
+ background-color: rgba(42, 41, 44, 0.849);
  margin: 0;
  padding: 0;
 }
@@ -20,18 +20,22 @@ body {
 }
 
 .choice {
- border: 4px solid rgb(0, 0, 0);
+ border: 4px solid rgb(238, 236, 236);
+ border-radius: 25px;
  width: 100px;
  height: 100px;
  margin: 2px;
  display: flex;
  justify-content: center;
  align-items: center;
- background-color: rgb(255, 255, 255);
+ background-color: rgb(137, 132, 219);
  color: white;
  cursor: pointer;
 }
-
+.choice:hover {
+ box-shadow: 1px 1px 1px rgb(17, 17, 17);
+ border: 3px solid rgb(238, 236, 236);
+}
 .computer-choice {
  cursor: not-allowed;
 }
@@ -70,5 +74,19 @@ button {
  padding: 10px;
  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
   "Lucida Sans", Arial, sans-serif;
-  border:none;
+ border: 1px solid transparent;
+ background-color: violet;
+ color: rgb(255, 255, 255);
+ border-radius: 5px;
+ cursor: pointer;
+ transition: 0.2s all;
+}
+button:hover {
+ box-shadow: 1px 1px 1px rgb(17, 17, 17);
+}
+p,
+h1,
+h6,
+div {
+ color: rgb(201, 235, 236);
 }
