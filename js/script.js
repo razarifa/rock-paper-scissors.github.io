@@ -41,7 +41,6 @@ function playRound(playerSelection, computerSelection) {
 }
 function game() {
  const choicesArray = [...document.querySelectorAll(".user-choice")];
- document.querySelector(".netice-p").style.display = "none";
  let round = 1;
 
  choicesArray.forEach((choice) => {
@@ -55,8 +54,7 @@ function game() {
     .replace(".png", "")
     .trim()
     .toLowerCase();
-   // https://razarifa.github.io/rock-paper-scissors.github.io/images/
-   //  http://127.0.0.1:5500/images/
+
    let im1 = document.querySelector(".im1");
    let im2 = document.querySelector(".im2");
    im1.setAttribute("src", `images/${playerSelection}.png`);
