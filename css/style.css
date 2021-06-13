@@ -2,6 +2,7 @@
 * {
  box-sizing: border-box;
  font-family: "Viaoda Libre", cursive;
+ color: rgb(206, 216, 216);
 }
 body {
  background-color: rgba(42, 41, 44, 0.849);
@@ -35,44 +36,43 @@ body {
  cursor: pointer;
  transition: 0.3s all;
 }
-img {
+.choice img {
  transition: 0.3s all;
 }
 .choice:hover img {
  transform: scale(1.2);
 }
 .choice:hover {
- box-shadow: 1px 1px 1px rgb(17, 17, 17);
+ box-shadow: 1px 1px 2px rgb(17, 17, 17);
  border: 3px solid rgb(196, 151, 172);
 }
 .computer-choice {
  cursor: not-allowed;
 }
 
-.result-container {
- display: flex;
- flex-direction: column;
-}
-
 .choice-images {
  display: flex;
 }
-button {
+.result-container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ height: 300px;
+}
+.new-game {
  padding: 10px;
-
  border: 1px solid transparent;
  background-color: violet;
- color: rgb(255, 255, 255);
+ color: rgb(0, 0, 0);
  border-radius: 5px;
  cursor: pointer;
+ transition-timing-function: ease-out;
  transition: 0.2s all;
+ letter-spacing: 1px;
+ font-size: 1em;
 }
-button:hover {
+.new-game:hover {
  box-shadow: 1px 1px 1px rgb(17, 17, 17);
-}
-p,
-h1,
-h6,
-div {
- color: rgb(206, 216, 216);
+ transform: scale(1.05);
 }

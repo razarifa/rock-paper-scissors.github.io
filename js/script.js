@@ -1,3 +1,6 @@
+let userScore = 0;
+let computerScore = 0;
+
 function randomNum() {
  let num = Math.floor(Math.random() * (3 - 1 + 1) + 1);
  return num;
@@ -18,12 +21,6 @@ function computerPlay() {
  }
 }
 
-let userScore = 0;
-let computerScore = 0;
-function reset() {
- computerScore = 0;
- userScore = 0;
-}
 function playRound(playerSelection, computerSelection) {
  if (playerSelection === computerSelection) {
   return `Tie game! ${
@@ -49,9 +46,8 @@ function playRound(playerSelection, computerSelection) {
 }
 function game() {
  const choicesArray = [...document.querySelectorAll(".user-choice")];
- document.querySelector(".netice-p").style.display = "none";
+ document.querySelector(".result-container").style.display = "none";
  let round = 1;
-
  choicesArray.forEach((choice) => {
   choice.addEventListener("click", () => {
    let computerSelection = computerPlay().toLowerCase();
@@ -72,11 +68,11 @@ function game() {
    im2.setAttribute("src", `images/${computerSelection}.png`);
    im1.setAttribute("alt", `${computerSelection}`);
    im2.style.width = "100px";
-
-   console.group(`Round: ${round}`);
-   console.log(`Your choice: ${playerSelection}`);
-   console.log(`Computer choice: ${computerSelection}`);
-   document.querySelector(".netice").innerText = playRound(
+   document.querySelector(".instant-result").innerText = playRound(
+    playerSelection,
+    computerSelection
+   );
+   document.querySelector(".result").innerText = playRound(
     playerSelection,
     computerSelection
    );
@@ -84,15 +80,16 @@ function game() {
    if (round == 6) {
     document.querySelector(".choice-images").style.display = "none";
     document.querySelector(".choice-container").style.display = "none";
-    document.querySelector(".netice-p").style.display = "block";
-    document.querySelector(".netice-p").addEventListener("click", () => {
+    document.querySelector(".instant-result").style.display = "none";
+    document.querySelector(".result-container").style.display = "flex";
+    document.querySelector(".new-game").addEventListener("click", () => {
      location.reload();
     });
     let res =
      userScore > computerScore
       ? `You won against the comp ${userScore}:${computerScore}`
       : `Computer won! ${computerScore}:${userScore}`;
-    document.querySelector(".netice").innerText = res;
+    document.querySelector(".result").innerText = res;
    }
   });
  });
