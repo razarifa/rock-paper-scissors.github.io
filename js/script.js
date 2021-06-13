@@ -26,7 +26,9 @@ function reset() {
 }
 function playRound(playerSelection, computerSelection) {
  if (playerSelection === computerSelection) {
-  return `Tie game! ${playerSelection} : ${computerSelection}.`;
+  return `Tie game! ${
+   playerSelection.toUpperCase() + playerSelection.slice(1)
+  } : ${computerSelection}.`;
  } else if (
   (playerSelection === "rock" && computerSelection === "scissors") ||
   (playerSelection === "paper" && computerSelection === "rock") ||
