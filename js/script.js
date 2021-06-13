@@ -64,11 +64,13 @@ function game() {
     .trim()
     .toLowerCase();
 
-   let im1 = document.querySelector(".im1");
-   let im2 = document.querySelector(".im2");
+   let im1 = document.querySelector(".your-choice-img");
+   let im2 = document.querySelector(".computer-choice-img");
    im1.setAttribute("src", `images/${playerSelection}.png`);
+   im1.setAttribute("alt", `${playerSelection}`);
    im1.style.width = "100px";
    im2.setAttribute("src", `images/${computerSelection}.png`);
+   im1.setAttribute("alt", `${computerSelection}`);
    im2.style.width = "100px";
 
    console.group(`Round: ${round}`);
@@ -80,7 +82,7 @@ function game() {
    );
    round++;
    if (round == 6) {
-    document.querySelector(".neticeler").style.display = "none";
+    document.querySelector(".choice-images").style.display = "none";
     document.querySelector(".choice-container").style.display = "none";
     document.querySelector(".netice-p").style.display = "block";
     document.querySelector(".netice-p").addEventListener("click", () => {
