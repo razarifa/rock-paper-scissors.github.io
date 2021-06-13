@@ -73,7 +73,7 @@ function game() {
    im1.setAttribute("alt", `${computerSelection}`);
    im2.style.width = "100px";
 
-   document.querySelector(".result").innerText = playRound(
+   document.querySelector(".instant-result").innerText = playRound(
     playerSelection,
     computerSelection
    );
