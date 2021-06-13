@@ -49,7 +49,7 @@ function game() {
    let computerSelection = computerPlay().toLowerCase();
    let playerSelection = choice.children[0].src
     .replace(
-     " https://razarifa.github.io/rock-paper-scissors.github.io/images/",
+     "https://razarifa.github.io/rock-paper-scissors.github.io/images/",
      ""
     )
     .replace(".png", "")
